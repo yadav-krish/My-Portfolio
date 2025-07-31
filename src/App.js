@@ -50,8 +50,8 @@ function App() {
           />
           <CharacterWithBoard
             characterPath="/sasuke.glb"
-            position={[4, -0.7, -4]}
-            rotation={[0, (-Math.PI * 2.5) / 4, 0]}
+            position={[8, -0.3, -9]}
+            rotation={[0, (-Math.PI * 1.1) / 4, 0]}
             boardContent="Skills"
             scale={0.35}
           />

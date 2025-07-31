@@ -29,38 +29,38 @@ function App() {
           <hemisphereLight intensity={0.3} />
           <IslandModel scale={0.5} position={[0, -1, 0]} />
           <NarutoModel
-            scale={0.5}
-            position={[0, 0, 0]}
+            scale={0.7}
+            position={[0, -0.7, 0]}
             rotation={[0, Math.PI, 0]}
           />
           {/* Four characters with boards */}
           <CharacterWithBoard
             characterPath="/itachi_uchiha_sharingan_akatsuki_amaterasu.glb"
-            position={[4, 0, 4]}
+            position={[4, -0.7, 4]}
             rotation={[0, -Math.PI / 4, 0]}
             boardContent="Projects"
-            scale={0.5}
+            scale={0.35}
           />
           <CharacterWithBoard
             characterPath="/kakashi.glb"
-            position={[-4, 0, 4]}
+            position={[-4, -0.7, 4]}
             rotation={[0, Math.PI / 4, 0]}
             boardContent="Experience"
-            scale={0.5}
+            scale={0.35}
           />
           <CharacterWithBoard
             characterPath="/sasuke.glb"
-            position={[4, 0, -4]}
+            position={[4, -0.7, -4]}
             rotation={[0, (-Math.PI * 3) / 4, 0]}
             boardContent="Skills"
-            scale={0.5}
+            scale={0.35}
           />
           <CharacterWithBoard
             characterPath="/ameno.glb"
-            position={[-4, 0, -4]}
+            position={[-4, -0.7, -4]}
             rotation={[0, (Math.PI * 3) / 4, 0]}
             boardContent="Education"
-            scale={0.5}
+            scale={0.35}
           />
         </Suspense>
         <OrbitControls

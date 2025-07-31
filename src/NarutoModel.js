@@ -10,15 +10,12 @@ export function NarutoModel(props) {
   const { scene, nodes, materials, animations } = useGLTF("/naruto_rage.glb");
   const { actions, mixer } = useAnimations(animations, group);
 
-  // Debug log to check model loading
-  console.log("Model loaded:", { scene, nodes, animations });
-
   const [currentAnimation, setCurrentAnimation] = useState("idle");
   const [movement, setMovement] = useState({ x: 0, z: 0 });
-  const speed = 0.08; // Reduced base speed
-  const acceleration = 0.04; // Lower acceleration for smoother start
-  const deceleration = 0.08; // Adjusted deceleration
-  const rotationSpeed = 0.05; // Slower rotation for smoother turning
+  const speed = 0.08;
+  const acceleration = 0.04;
+  const deceleration = 0.08;
+  const rotationSpeed = 0.05;
   const velocity = useRef({ x: 0, z: 0 });
 
   useEffect(() => {
@@ -69,13 +66,9 @@ export function NarutoModel(props) {
     };
   }, []);
 
-  // Handle animations
   useEffect(() => {
     if (animations.length) {
-      // Play idle animation by default
       actions["idle"]?.play();
-
-      // Reset all animations when changing states
       Object.values(actions).forEach((action) => {
         action.clampWhenFinished = true;
         action.setLoop(THREE.LoopRepeat);
@@ -85,10 +78,8 @@ export function NarutoModel(props) {
 
   useFrame((state, delta) => {
     if (modelRef.current) {
-      // Calculate movement with delta time for frame-rate independence
-      const frameSpeed = speed * delta * 60; // Normalize to 60fps
+      const frameSpeed = speed * delta * 60;
 
-      // Smooth velocity changes with improved acceleration
       velocity.current.x = THREE.MathUtils.lerp(
         velocity.current.x,
         movement.x * frameSpeed,
@@ -100,11 +91,9 @@ export function NarutoModel(props) {
         movement.z ? acceleration : deceleration
       );
 
-      // Update position based on velocity
       modelRef.current.position.x += velocity.current.x;
       modelRef.current.position.z += velocity.current.z;
 
-      // Improved rotation logic
       if (
         Math.abs(velocity.current.x) > 0.001 ||
         Math.abs(velocity.current.z) > 0.001
@@ -114,11 +103,9 @@ export function NarutoModel(props) {
           velocity.current.z
         );
 
-        // Smooth rotation with proper interpolation
         const currentRotation = modelRef.current.rotation.y;
         let newRotation = currentRotation;
 
-        // Calculate shortest rotation path
         const rotationDiff = targetRotation - currentRotation;
         if (Math.abs(rotationDiff) > Math.PI) {
           if (rotationDiff > 0) {
@@ -136,20 +123,17 @@ export function NarutoModel(props) {
           rotationSpeed
         );
 
-        // Change to running animation when moving
         if (currentAnimation !== "run") {
           actions[currentAnimation]?.fadeOut(0.2);
           actions["run"]?.reset().fadeIn(0.2).play();
           setCurrentAnimation("run");
         }
       } else if (currentAnimation !== "idle") {
-        // Change back to idle animation when stopped
         actions[currentAnimation]?.fadeOut(0.2);
         actions["idle"]?.reset().fadeIn(0.2).play();
         setCurrentAnimation("idle");
       }
 
-      // Update mixer for animations
       mixer?.update(delta);
     }
   });

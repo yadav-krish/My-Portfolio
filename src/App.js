@@ -43,8 +43,8 @@ function App() {
           />
           <CharacterWithBoard
             characterPath="/kakashi.glb"
-            position={[-4, -0.7, 4]}
-            rotation={[0, Math.PI / 4, 0]}
+            position={[-8, -0.7, 9]}
+            rotation={[2, Math.PI / 1.2, 0]}
             boardContent="Experience"
             scale={0.35}
           />

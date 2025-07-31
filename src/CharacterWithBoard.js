@@ -31,15 +31,15 @@ export function CharacterWithBoard({
       {/* Board */}
       <group position={[0, 2, 0]} rotation={[0, rotation[1], 0]}>
         {/* Board background */}
-        <mesh position={[0, 0.5, 0]} castShadow>
+        <mesh position={[0, 1.3, 0]} castShadow>
           <boxGeometry args={[2, 1.5, 0.1]} />
           <meshStandardMaterial color="#2a3b4c" />
         </mesh>
 
         {/* Board content */}
         <Text
-          position={[0, 0.5, 0.1]}
-          fontSize={0.2}
+          position={[0, 1.3, 0.1]}
+          fontSize={0.3}
           color="#ffffff"
           anchorX="center"
           anchorY="middle"
@@ -49,9 +49,9 @@ export function CharacterWithBoard({
         </Text>
 
         {/* Decorative line */}
-        <mesh position={[0, 0, 0.06]}>
+        <mesh position={[0, 2, 0.06]}>
           <planeGeometry args={[1.5, 0.02]} />
-          <meshBasicMaterial color="#4a5b6c" />
+          <meshBasicMaterial color="#12cbe3ff" />
         </mesh>
       </group>
     </group>

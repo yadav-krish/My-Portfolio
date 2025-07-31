@@ -39,28 +39,28 @@ function App() {
             position={[8, 1.45, 9]}
             rotation={[0, -Math.PI / 1.5, 0]}
             boardContent="Projects"
-            scale={1.5}
+            scale={1.8}
           />
           <CharacterWithBoard
             characterPath="/kakashi.glb"
             position={[-8, -0.7, 9]}
             rotation={[2, Math.PI / 1.2, 0]}
             boardContent="Experience"
-            scale={0.35}
+            scale={0.32}
           />
           <CharacterWithBoard
             characterPath="/sasuke.glb"
             position={[8, -0.3, -9]}
             rotation={[0, (-Math.PI * 1.1) / 4, 0]}
             boardContent="Skills"
-            scale={0.35}
+            scale={0.4}
           />
           <CharacterWithBoard
             characterPath="/ameno.glb"
-            position={[-4, -0.7, -4]}
-            rotation={[0, (Math.PI * 3) / 4, 0]}
+            position={[-6, -0.2, -9]}
+            rotation={[0, (Math.PI * 11.5) / 5, 0]}
             boardContent="Education"
-            scale={0.35}
+            scale={0.55}
           />
         </Suspense>
         <OrbitControls

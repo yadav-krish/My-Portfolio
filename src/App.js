@@ -36,10 +36,10 @@ function App() {
           {/* Four characters with boards */}
           <CharacterWithBoard
             characterPath="/itachi_uchiha_sharingan_akatsuki_amaterasu.glb"
-            position={[4, -0.7, 4]}
-            rotation={[0, -Math.PI / 4, 0]}
+            position={[8, 1.45, 9]}
+            rotation={[0, -Math.PI / 1.5, 0]}
             boardContent="Projects"
-            scale={0.35}
+            scale={1.5}
           />
           <CharacterWithBoard
             characterPath="/kakashi.glb"
@@ -51,7 +51,7 @@ function App() {
           <CharacterWithBoard
             characterPath="/sasuke.glb"
             position={[4, -0.7, -4]}
-            rotation={[0, (-Math.PI * 3) / 4, 0]}
+            rotation={[0, (-Math.PI * 2.5) / 4, 0]}
             boardContent="Skills"
             scale={0.35}
           />
